@@ -69,17 +69,17 @@ like ($c3->config (
     ), qr(^Tk::Clock=HASH), "config");
 ok ($c3->grid (-column => 1, -row => 0, -sticky => "news", -pady => 20), "grid");
 
-ok (my $c4 = $m->Clock (%defconfig),			"Clock Tokyo");
-like ($c4->config (
-    anaScale   => 200,
-    countDown  => 1,
-    useLocale  => ($^O eq "MSWin32" ? "Japanese_Japan.932" : "ja_JP.utf8"),
-    infoFormat => "ddd mmm",
-    handColor  => "Yellow",
-    timeZone   => "Asia/Tokyo",
-    dateFormat => "Asia/Tokyo",
-    ), qr(^Tk::Clock=HASH), "config");
-ok ($c4->grid (-column => 1, -row => 1, -sticky => "news", -padx => 20, -pady => 20), "grid");
+#ok (my $c4 = $m->Clock (%defconfig),			"Clock Tokyo");
+#like ($c4->config (
+#    anaScale   => 200,
+#    countDown  => 1,
+#    useLocale  => ($^O eq "MSWin32" ? "Japanese_Japan.932" : "ja_JP.utf8"),
+#    infoFormat => "ddd mmm",
+#    handColor  => "Yellow",
+#    timeZone   => "Asia/Tokyo",
+#    dateFormat => "Asia/Tokyo",
+#    ), qr(^Tk::Clock=HASH), "config");
+#ok ($c4->grid (-column => 1, -row => 1, -sticky => "news", -padx => 20, -pady => 20), "grid");
 
 for (0..1) {
     $m->gridColumnconfigure ($_, -weight => 1);
@@ -88,8 +88,10 @@ for (0..1) {
 
 $delay += 5 * $period;
 $c3->after ($delay, sub {
-    $_->destroy for $c1, $c2, $c3, $c4;
-    ok (!Exists ($_), "Destroy Clock") for $c1, $c2, $c3, $c4;
+#    $_->destroy for $c1, $c2, $c3, $c4;
+#    ok (!Exists ($_), "Destroy Clock") for $c1, $c2, $c3, $c4;
+    $_->destroy for $c1, $c2, $c3;
+    ok (!Exists ($_), "Destroy Clock") for $c1, $c2, $c3;
     $m->destroy;
     ok (!Exists ($m), "Destroy Main");
 

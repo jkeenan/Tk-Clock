@@ -115,20 +115,20 @@ $c->after ($delay, sub {
 	), "Gray30  left digital");
     });
 
-$delay += $period;
-$c->after ($delay, sub {
-    $c->configure (-background => "Purple4");
-    ok ($c->config (
-	useAnalog  => 0,
-	useInfo    => 0,
-	useDigital => 1,
-	useLocale  => ($^O eq "MSWin32" ? "Japanese_Japan.932" : "ja_JP.utf8"),
-	timeFont   => "Helvetica 8",
-	dateFont   => "Helvetica 8",
-	dateFormat => "dddd\nd mmm yyy",
-	timeFormat => "",
-	), "Purple4 aD dddd\\nd mmm yyy ''");
-    });
+#$delay += $period;
+#$c->after ($delay, sub {
+#    $c->configure (-background => "Purple4");
+#    ok ($c->config (
+#	useAnalog  => 0,
+#	useInfo    => 0,
+#	useDigital => 1,
+#	useLocale  => ($^O eq "MSWin32" ? "Japanese_Japan.932" : "ja_JP.utf8"),
+#	timeFont   => "Helvetica 8",
+#	dateFont   => "Helvetica 8",
+#	dateFormat => "dddd\nd mmm yyy",
+#	timeFormat => "",
+#	), "Purple4 aD dddd\\nd mmm yyy ''");
+#    });
 
 $delay += $period;
 $c->after ($delay, sub {
